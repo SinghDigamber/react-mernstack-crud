@@ -18,23 +18,23 @@ router.route('/create-student').post((req, res, next) => {
 });
 
 // READ Students
-router.route('/').get((req, res) => {
+router.route('/').get((req, res, next) => {
   studentSchema.find((error, data) => {
     if (error) {
       return next(error)
     } else {
-      res.json(data)
+     return res.json(data)
     }
   })
 })
 
 // Get Single Student
-router.route('/edit-student/:id').get((req, res) => {
+router.route('/edit-student/:id').get((req, res, next) => {
   studentSchema.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
-      res.json(data)
+      return res.json(data)
     }
   })
 })
@@ -46,8 +46,9 @@ router.route('/update-student/:id').put((req, res, next) => {
     $set: req.body
   }, (error, data) => {
     if (error) {
-      return next(error);
+      
       console.log(error)
+      return next(error);
     } else {
       res.json(data)
       console.log('Student updated successfully !')

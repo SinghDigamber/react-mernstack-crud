@@ -21,7 +21,7 @@ export default class StudentList extends Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error + " axios error");
       })
   }
 

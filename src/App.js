@@ -33,6 +33,11 @@ function App() {
                 </Link>
               </Nav>
 
+            {// This is commented out since we go to edit a student with an ID and if we click it from the 
+            // Nav, we're going there without an id which doesn't make sense (e.g. we have to edit something and need an ID)
+            // Thus, we're only able to edit the student from the student list menu
+            
+            } 
               {/* <Nav>
                 <Link to={"/edit-student/:id"} className="nav-link">
                   Edit Student
